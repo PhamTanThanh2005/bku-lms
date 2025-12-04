@@ -138,7 +138,7 @@ export function DashboardLayout({ user, children, currentPage, onNavigate, onLog
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold">{user.name}</div>
+                <div className="font-bold text-primary">{user.name}</div>
                 <div className="text-xs text-muted-foreground">{getRoleLabel(user.role)}</div>
               </div>
             </div>
@@ -157,56 +157,55 @@ export function DashboardLayout({ user, children, currentPage, onNavigate, onLog
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+        <header className="h-16 bg-primary border-b border-gray-200 flex items-center justify-between px-6">
           <div className="flex items-center gap-4">
             <Button
-              variant="ghost"
               size="icon"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-10 h-10 text-white" />
             </Button>
-            <h2>
+            <h2 className="text-white font-bold uppercase">
               {menuItems.find(item => item.id === currentPage)?.label || 'Dashboard'}
             </h2>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-10">
             {/* Notifications */}
-            <Button variant="ghost" size="icon" className="relative">
-              <Bell className="w-5 h-5" />
+            <Button size="icon" className="relative bg-white rounded-sm">
+              <Bell className="w-5 h-5 text-primary" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </Button>
 
             {/* User Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-2">
-                  <Avatar className="w-8 h-8">
-                    <AvatarFallback className="bg-primary text-white">
+                <Button className="gap-3 relative rounded-sm p-2">
+                  <Avatar className="w-9 h-9">
+                    <AvatarFallback className="bg-white text-primary font-bold">
                       {getInitials(user.name)}
                     </AvatarFallback>
                   </Avatar>
                   <div className="text-left hidden md:block">
-                    <div className="text-sm">{user.name}</div>
-                    <div className="text-xs text-muted-foreground">{getRoleLabel(user.role)}</div>
+                    <div className="text-sm font-bold">{user.name}</div>
+                    <div className="text-xs text-white italic">{getRoleLabel(user.role)}</div>
                   </div>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Tài khoản của tôi</DropdownMenuLabel>
+                <DropdownMenuLabel className="flex items-center justify-center font-semibold text-primary">Tài khoản của tôi</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => onNavigate('profile')}>
-                  <UserCircle className="w-4 h-4 mr-2" />
+                  <UserCircle className="w-4 h-4 mr-2 text-primary" />
                   Hồ sơ cá nhân
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => onNavigate('settings')}>
-                  <Settings className="w-4 h-4 mr-2" />
+                  <Settings className="w-4 h-4 mr-2 text-primary" />
                   Cài đặt
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={onLogout} className="text-red-600">
-                  <LogOut className="w-4 h-4 mr-2" />
+                  <LogOut className="w-4 h-4 mr-2 text-primary" />
                   <div className="font-bold">Đăng xuất</div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
