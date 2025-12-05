@@ -14,6 +14,7 @@ import { AssignmentDetail } from './components/student/AssignmentDetail';
 import { StudentAssignments } from './components/student/StudentAssignments';
 import { StudentReports } from './components/student/StudentReports';
 import { StudentDocuments } from './components/student/StudentDocuments';
+import { StudentDiscussions } from "./components/student/StudentDiscussion";
 import { TeacherDashboard } from './components/teacher/TeacherDashboard';
 import { TeacherCourses } from './components/teacher/TeacherCourses';
 import { TeacherAssignments } from './components/teacher/TeacherAssignments';
